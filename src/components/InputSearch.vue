@@ -6,10 +6,14 @@ export default {
     emits: ["submit", "update:modelValue"],
     methods: {
         updateModelValue(e) {
+            // console.log('qqqqqq');
             this.$emit("update:modelValue", e.target.value);
+            // console.log(e.target.value);
         },
         submit() {
+            // console.log(modelValue);
             this.$emit("submit");
+
         },
     },
 };

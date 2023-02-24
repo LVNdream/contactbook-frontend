@@ -1,7 +1,10 @@
 <template>
     <div class="page row">
+        <!-- <div class="col-md-12 mt-5">
+            <AppHeader />
+        </div> -->
         <div class="col-md-10">
-            <InputSearch v-model="searchText" />
+            <InputSearch v-model="searchText"/>
         </div>
         <div class="mt-3 col-md-6">
             <h4>
@@ -35,15 +38,23 @@
     </div>
 </template>
 <script>
+import AppHeader from "@/components/AppHeader.vue";
 import ContactCard from "@/components/ContactCard.vue";
 import InputSearch from "@/components/InputSearch.vue";
 import ContactList from "@/components/ContactList.vue";
 import ContactService from "@/services/contact.service";
 export default {
+    mounted() {
+    console.log(`the component is now mounted.`)
+  },
+  created() {
+    console.log(`the component is now created ted.`)
+  },
     components: {
         ContactCard,
         InputSearch,
         ContactList,
+        AppHeader,
     },
     // Đoạn mã xử lý đầy đủ sẽ trình bày bên dưới
     data() {
@@ -58,6 +69,7 @@ export default {
         // Bỏ chọn phần tử đang được chọn trong danh sách.
         searchText() {
             this.activeIndex = -1;
+            // console.log('asdasda');
         },
     },
     computed: {
@@ -107,10 +119,14 @@ export default {
         goToAddContact() {
             this.$router.push({ name: "contact.add" });
         },
+        abc(){
+           console.log("asdasfasfsa");
+        }
     },
     mounted() {
         this.refreshList();
     },
+
 };
 </script>
 <style scoped>
